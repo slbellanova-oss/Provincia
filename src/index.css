@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .mask-inner-corner-right {
+    mask-image: radial-gradient(circle at 100% 100%, transparent 2rem, black 2rem);
+    -webkit-mask-image: radial-gradient(circle at 100% 100%, transparent 2rem, black 2rem);
+  }
+  .mask-inner-corner-left {
+    mask-image: radial-gradient(circle at 0% 100%, transparent 2rem, black 2rem);
+    -webkit-mask-image: radial-gradient(circle at 0% 100%, transparent 2rem, black 2rem);
+  }
+  .mask-inner-corner-bottom-left {
+    mask-image: radial-gradient(circle at 100% 100%, transparent 2rem, black 2rem);
+    -webkit-mask-image: radial-gradient(circle at 100% 100%, transparent 2rem, black 2rem);
+  }
+  .mask-inner-corner-bottom-right {
+    mask-image: radial-gradient(circle at 0% 100%, transparent 2rem, black 2rem);
+    -webkit-mask-image: radial-gradient(circle at 0% 100%, transparent 2rem, black 2rem);
+  }
+
+  .cutout-br {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: var(--cutout-bg, white);
+    border-top-left-radius: 2rem;
+    z-index: 10;
+  }
+  .cutout-br::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -2rem;
+    width: 2rem;
+    height: 2rem;
+    background-image: radial-gradient(circle at 0% 0%, transparent 2rem, var(--cutout-bg, white) 2rem);
+  }
+
+  .cutout-bl {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--cutout-bg, white);
+    border-top-right-radius: 2rem;
+    z-index: 10;
+  }
+  .cutout-bl::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: -2rem;
+    width: 2rem;
+    height: 2rem;
+    background-image: radial-gradient(circle at 100% 0%, transparent 2rem, var(--cutout-bg, white) 2rem);
+  }
+  .cutout-bl::after {
+    content: '';
+    position: absolute;
+    top: -2rem;
+    left: 0;
+    width: 2rem;
+    height: 2rem;
+    background-image: radial-gradient(circle at 100% 0%, transparent 2rem, var(--cutout-bg, white) 2rem);
+  }
+
+  .hero-shape {
+    border-radius: 32px;
+    position: relative;
+    margin-top: 10px;
+  }
+  @media (min-width: 768px) {
+    .hero-shape {
+      border-radius: 40px;
+      margin-top: 30px;
+    }
+  }
+}
